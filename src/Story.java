@@ -15,6 +15,9 @@ public class Story {
 		
 		//Amna added this 
 		System.out.println("They fought vigirously and saved their bunch of  their bananas. ");
+		
+		// Dewey
+		System.out.println("The end. (OR IS IT?)");
 	}
 
 }
