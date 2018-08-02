@@ -4,6 +4,7 @@ public class Story {
 
 		System.out.println("Once upon a time in the mystical land of Shangrila there dwelt"
 				+ " an immortal named Kai-Yun and his trusty band of ninja monkeys.");
+		//Amna added this 
 		System.out.println(" All the monkey's were eating bananas. ");
 
 		// Dewey added this!
@@ -11,6 +12,9 @@ public class Story {
 
 		//Kari added this
 		System.out.println("Kai-Yun and his trusty band of ninja monkeys decided they had to fight back and defend their ground!");
+		
+		//Amna added this 
+		System.out.println("They fought vigirously and saved their bunch of  their bananas. ");
 	}
 
 }
