@@ -3,8 +3,14 @@ package co.grandcircus.midterm;
 public class TacoCartApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		// Make an instance of a ProductFileUtil to use for reading/writing Product files.
+		ProductFileUtil fileUtil = new ProductFileUtil();
+		
+		Menu menu = new Menu(fileUtil.readFile());
+		
+		menu.displayMenu();
+		
 	}
 
 }
