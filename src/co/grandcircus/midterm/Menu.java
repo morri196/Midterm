@@ -3,6 +3,7 @@ package co.grandcircus.midterm;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Menu {
 	private List<Product> menuList = new ArrayList<Product>();
@@ -39,12 +40,16 @@ public class Menu {
 			// TODO: Fix the period!
 			System.out.printf("%d. %-25s%-10s$%.2f%n", (i + 1), product.getName(), product.getCategory(), product.getPrice());
 		}
-		
+
 	}
 	
-	public Product getProductChoice(/* arguemnts */) {
+	public Product getProductChoice(Scanner scnr/* maybe more? */) {
+		System.out.println("\nWhat would you like to order? Choose an option 1-" + menuList.size() + ".");
+
+		// TODO: Validate user has entered an integer (within the bounds of the menu)
+		int userInput = Integer.parseInt(scnr.nextLine().trim());
 		
-		
+		return menuList.get(userInput - 1);
 		
 	}
 	
