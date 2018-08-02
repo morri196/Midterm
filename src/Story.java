@@ -2,13 +2,11 @@
 public class Story {
 	public static void main(String[] args) {
 
-<<<<<<< HEAD
+
+		
 		System.out.println("Once upon a time in the mystical land of Downtown Detroit there dwelt"
-				+ " an immortal named Kai-Yun and his trusty band of ninja monkeys.");
-=======
-		System.out.println("Once upon a time in the mystical land of Detroit there dwelt"
 				+ " an immortal named David and his trusty band of ninja monkeys.");
->>>>>>> 670c2b1dd807f7b535dea0516378203f1ad4cf53
+
 		//Amna added this 
 		System.out.println(" All the monkey's were eating bananas. ");
 
