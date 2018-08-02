@@ -6,27 +6,27 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-	private List<Product> menuList = new ArrayList<Product>();
+	private List<Product> menu = new ArrayList<Product>();
 
 	public Menu(List<Product> list) {
-		this.menuList = list;
+		this.menu = list;
 	} 
 	
 	public Menu() {
-		this.menuList = new ArrayList<Product>(Arrays.asList());
+		this.menu = new ArrayList<Product>(Arrays.asList());
 	}
 
 	public List<Product> getMenuList() {
-		return menuList;
+		return menu;
 	}
 
 	public void setMenuList(ArrayList<Product> menuList) {
-		this.menuList = menuList;
+		this.menu = menuList;
 	}
 
 	@Override
 	public String toString() {
-		return "Menu [menuList=" + menuList + "]";
+		return "Menu [menuList=" + menu + "]";
 	}
 	
 	public void displayMenu() {
@@ -35,8 +35,8 @@ public class Menu {
 		System.out.printf("#. %-25s%-10s%s%n", "Name", "Category", "Price");
 		System.out.print("===========================================\n");
 		
-		for (int i = 0; i < menuList.size(); i++) {
-			Product product = menuList.get(i);
+		for (int i = 0; i < menu.size(); i++) {
+			Product product = menu.get(i);
 			// TODO: Fix the period!
 			System.out.printf("%d. %-25s%-10s$%.2f%n", (i + 1), product.getName(), product.getCategory(), product.getPrice());
 		}
@@ -44,12 +44,12 @@ public class Menu {
 	}
 	
 	public Product getProductChoice(Scanner scnr/* maybe more? */) {
-		System.out.println("\nWhat would you like to order? Choose an option 1-" + menuList.size() + ".");
+		System.out.println("\nWhat would you like to order? Choose an option 1-" + menu.size() + ".");
 
 		// TODO: Validate user has entered an integer (within the bounds of the menu)
 		int userInput = Integer.parseInt(scnr.nextLine().trim());
 		
-		return menuList.get(userInput - 1);
+		return menu.get(userInput - 1);
 		
 	}
 	

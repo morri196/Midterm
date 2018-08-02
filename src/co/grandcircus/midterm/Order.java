@@ -7,32 +7,50 @@ public class Order {
 
 	private static final double SALES_TAX = 0.06; 
 	
-	private ArrayList<Product> orderList = new ArrayList<Product>();
+	private ArrayList<Product> order = new ArrayList<Product>();
 	
-	public Order(ArrayList<Product> orderList) {
-		this.orderList = orderList;
+	public Order(ArrayList<Product> order) {
+		this.order = order;
 			}
 	
 	public Order() {
-		this.orderList = new ArrayList<Product>(Arrays.asList());
+		this.order = new ArrayList<Product>(Arrays.asList());
 	}
 
-	public ArrayList<Product> getCartList() {
-		return orderList;
+	public ArrayList<Product> getOrder() {
+		return order;
 	}
 
-	public void setCartList(ArrayList<Product> cartList) {
-		this.orderList = cartList;
+	public void setOrder(ArrayList<Product> order) {
+		this.order = order;
 	}
 	
 	// write a method that adds a product to the order:
 	public void addProduct(Product product) {
-		orderList.add(product);
+		order.add(product);
 	}
 
 	@Override
 	public String toString() {
-		return "Order [orderList=" + orderList + "]";
+		return "Order [orderList=" + order + "]";
+	}
+	
+	public double getSubTotal() {
+		double total = 0;
+		
+		for (Product product : order) {
+			total += product.getPrice();
+		}
+		
+		return total;
+	}
+	
+	public double getSalesTax() {
+		return getSubTotal() * SALES_TAX;
+	}
+	
+	public double getGrandTotal() {
+		return getSubTotal() + getSalesTax();
 	}
 
 }

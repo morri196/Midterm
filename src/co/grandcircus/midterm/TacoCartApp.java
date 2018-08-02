@@ -10,17 +10,40 @@ public class TacoCartApp {
 		ProductFileUtil fileUtil = new ProductFileUtil();
 		Scanner scnr = new Scanner(System.in);
 		
+		// Initialize Menu and Empty Order
 		Menu menu = new Menu(fileUtil.readFile());
+		Order order = new Order();
 		
+		// Display menu to user
 		menu.displayMenu();
 		
+		// Initialize a product with the user's choice
 		Product chosenProduct = menu.getProductChoice(scnr);
 		
-		Order order = new Order();
-		System.out.println(order);
+		// Add the chosen product to the order
 		order.addProduct(chosenProduct);
+		
+		// Print the order (not very pretty)
 		System.out.println(order);
 		
+		System.out.println(order.getSubTotal());
+		
+		scnr.nextLine();
+		
+		// Initialize a product with the user's choice
+		Product chosenProduct2 = menu.getProductChoice(scnr);
+				
+		// Add the chosen product to the order
+		order.addProduct(chosenProduct2);
+				
+		// Print the order (not very pretty)
+		System.out.println(order);
+		
+		System.out.println(order.getSubTotal());
+		System.out.printf("%.2f%n", order.getSalesTax());
+		System.out.println(order.getGrandTotal());
+
+
 		
 	}
 
