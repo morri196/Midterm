@@ -9,6 +9,8 @@ public class Story {
 		// Dewey added this!
 		System.out.println("When suddenly they were attacked by crows that wanted to eat the bananas!");
 
+		//Kari added this
+		System.out.println("Kai-Yun and his trusty band of ninja monkeys decided they had to fight back and defend their ground!");
 	}
 
 }
