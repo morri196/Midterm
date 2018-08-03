@@ -43,6 +43,7 @@ public class Menu {
 
 	}
 	
+	// TODO: Refactor this to be compatible with our new validators!
 	public Product getProductChoice(Scanner scnr/* maybe more? */) {
 		System.out.println("\nWhat would you like to order? Choose an option 1-" + menu.size() + ".");
 
