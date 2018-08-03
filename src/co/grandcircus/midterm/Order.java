@@ -52,5 +52,27 @@ public class Order {
 	public double getGrandTotal() {
 		return getSubTotal() + getSalesTax();
 	}
+	
+	public void payForOrder() {
+		// TODO: Let User Select Payment Method
+		
+	}
+	
+	public void payWithCredit() {
+		// TODO: Make this a thing
+		// TODO: Kari
+	}
+	
+	public void payWithCash() {
+		// TODO: ditto
+		// TODO: AMNA
+	}
+	
+	public void payWithCheck() {
+		// TODO: WHY??? WHY ARE YOU DOING THIS?
+		// TODO: Dewey
+	}
+	
+	
 
 }
