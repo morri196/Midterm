@@ -1,5 +1,5 @@
 package co.grandcircus.midterm;
-
+import java.util.Scanner; 
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -63,9 +63,14 @@ public class Order {
 		// TODO: Kari
 	}
 	
-	public void payWithCash() {
+	public double payWithCash(Scanner scnr) {
 		// TODO: ditto
 		// TODO: AMNA
+
+		double payment = scnr.nextDouble(); 
+		double change = payment - getGrandTotal();  
+		
+		return change;
 	}
 	
 	public void payWithCheck() {
