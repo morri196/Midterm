@@ -47,10 +47,21 @@ public class Menu {
 		System.out.println("\nWhat would you like to order? Choose an option 1-" + menu.size() + ".");
 
 		// TODO: Validate user has entered an integer (within the bounds of the menu)
-		int userInput = Integer.parseInt(scnr.nextLine().trim());
+		int menuChoice = Integer.parseInt(scnr.nextLine().trim());
 		
-		return menu.get(userInput - 1);
+		Product chosenProduct = menu.get(menuChoice - 1);
 		
+		// Ask user for quantity
+		System.out.println("How many " + chosenProduct.getName() + " would you like? ");
+		
+		// TODO: Validate positive whole number (do we want a limit?)
+		int quantityChoice = Integer.parseInt(scnr.nextLine().trim());
+		
+		// Set chosenProduct's quantity
+		chosenProduct.setQuantity(quantityChoice);
+		
+		// return the product with the correct quantity
+		return chosenProduct;
 	}
 	
 	

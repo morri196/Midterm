@@ -39,7 +39,7 @@ public class Order {
 		double total = 0;
 		
 		for (Product product : order) {
-			total += product.getPrice();
+			total += product.getPrice() * product.getQuantity();
 		}
 		
 		return total;
