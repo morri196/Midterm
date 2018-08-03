@@ -10,19 +10,7 @@ public class Vtest {
 		
 		Scanner scnr = new Scanner(System.in);
 		
-		try {
-			System.out.println("Enter mm/yy");
-			String userInput = scnr.nextLine();
-			// Validators.isPositive(userInput);
-			// Validators.isInRange(userInput, 100);
-			// Validators.isCorrectNumberOfDigits(userInput, 1);
-			// Validators.isGreaterThanMinAmount(userInput, 2.75);
-			// Validators.isValidCreditCardNumber(userInput);
-			// Validators.isValidNameOnCreditCard(userInput);
-			Validators.isValidCreditCardExpirationDate(userInput);
-		} catch (IllegalArgumentException ex) {
-			System.out.println(ex.getMessage());
-		}
+		int quantity = Validators.getValidQuantity(scnr);
 		
 		scnr.close();
 		

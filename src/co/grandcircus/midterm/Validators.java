@@ -3,9 +3,61 @@ package co.grandcircus.midterm;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Scanner;
 
 public class Validators {
 
+	// Validation Loop Template:
+	
+	public static int getValidQuantity(Scanner scnr) {
+		// Initialize variable you want to return
+		int quantity = 1;
+		// Set input valid to false initially
+		boolean inputValid = false;
+		
+		// Print desired prompt
+		System.out.println("How many would you like?");
+		
+		// Enter the do loop that goes as long as input is not valid
+		do {
+			try {
+				// Try to parse user input for an integer ... might fail and kick to catch
+				quantity = getParsedInteger(scnr.nextLine().trim());
+				// Check if it's positive ... might fail and kick to catch
+				isPositive(quantity);
+				// Add as many of our custom validators as you need!
+				
+				// If survives all validators! You win. You are the valid input!
+				inputValid = true;
+
+			} catch (IllegalArgumentException ex) {
+				// Get the specific exception that was thrown's message and print it
+				System.out.println(ex.getMessage());
+
+			} 
+		} while (!inputValid);
+		
+		// Return the valid input
+		return quantity;
+		
+	}
+	
+	public static int getParsedInteger(String userInput) {
+		try {
+			return Integer.parseInt(userInput);
+		} catch (NumberFormatException ex) {
+			throw new IllegalArgumentException("That's not a valid number of items to order! Please try again:");
+		}	
+	}
+	
+	public static double getParsedDouble(String userInput) {
+		try {
+			return Double.parseDouble(userInput);
+		} catch (NumberFormatException ex) {
+			throw new IllegalArgumentException("That's not a valid money! Please try again:");
+		}	
+	}
+	
 	
 	// Validate that an integer is within range 0 - maxNum
 	public static void isInRange(int userInput, int maxNum) {
