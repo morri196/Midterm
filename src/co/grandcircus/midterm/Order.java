@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Order {
-
-	private static final double SALES_TAX = 0.06; 
 	
+	private static final double SALES_TAX = 0.06; 
 	private ArrayList<Product> order = new ArrayList<Product>();
 	
 	public Order(ArrayList<Product> order) {

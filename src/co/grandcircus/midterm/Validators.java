@@ -6,8 +6,7 @@ import java.text.SimpleDateFormat;
 
 public class Validators {
 
-	// Get Integers
-
+	
 	// Validate that an integer is within range 0 - maxNum
 	public static void isInRange(int userInput, int maxNum) {
 		if (userInput < 1 || userInput > maxNum) {
@@ -29,24 +28,28 @@ public class Validators {
 		}
 	}
 
+	// Validate that an integer has a specified amount of digits
 	public static void isCorrectNumberOfDigits(int userInput, int correctNumDigits) {
 		if (String.valueOf(userInput).length() != correctNumDigits) {
 			throw new IllegalArgumentException("You must enter " + correctNumDigits + " digits. Please try again:");
 		}
 	}
 
+	// Validate that an double is greater than a specified amount
 	public static void isGreaterThanMinAmount(double userInput, double minAmount) {
 		if (userInput < minAmount) {
 			throw new IllegalArgumentException("You must enter at least $" + minAmount + ". Please try again:");
 		}
 	}
 	
+	// Validate that a String is alphanumeric and only contains single spaces
 	public static void isValidNameOnCreditCard(String userInput) {
 		if (!userInput.matches("^(?!.*  )[a-zA-Z ]*$")) {
 			throw new IllegalArgumentException("You must enter your name as it appears on the card. Please try again:");
 		}
 	}
 	
+	// Validate that a String has the format ####-####-####-####
 	public static void isValidCreditCardNumber(String userInput) {
 		if (!userInput.matches("^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")) {
 			throw new IllegalArgumentException(
@@ -54,6 +57,7 @@ public class Validators {
 		}
 	}
 	
+	// Validate that a String is a valid date with the format mm/yy
 	public static void isValidCreditCardExpirationDate(String userInput) {
 		DateFormat format = new SimpleDateFormat("MM/yy");
 		format.setLenient(false);		/* Inputs must match specified format */
@@ -63,14 +67,13 @@ public class Validators {
 		} catch (ParseException pe) {
 			throw new IllegalArgumentException("Date format must be MM/YY. Please try again:");
 		}
-		
-		// Check for dates that could be parsed but do not follow dd/mm/yyyy format
-		// For example, 01/01/12345 could be successfully parsed, but it does not
-		// match the specified format.
+		// Check for dates that could be parsed but do not follow mm/yy format
 		// MIGHT BE OVERKILL?
 		if (!userInput.matches("^[0-9]{2}/[0-9]{2}$")) {
 			throw new IllegalArgumentException("Date format must be MM/YY. Please try again:");
 		}
+
+		// TODO: Add validation that the card has not expired!
 		
 	}
 
