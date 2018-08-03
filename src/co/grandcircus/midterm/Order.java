@@ -63,14 +63,13 @@ public class Order {
 		// TODO: Kari
 	}
 	
-	public double payWithCash(Scanner scnr) {
-		// TODO: ditto
-		// TODO: AMNA
-
+	public void payWithCash(Scanner scnr) {
+		// TODO: VALIDATION
 		double payment = scnr.nextDouble(); 
+		
 		double change = payment - getGrandTotal();  
 		
-		return change;
+		System.out.printf("Your change is %.2f.%n", change);
 	}
 	
 	public void payWithCheck() {
