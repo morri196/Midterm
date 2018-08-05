@@ -44,19 +44,12 @@ public class Menu {
 	}
 	
 	// TODO: Refactor this to be compatible with our new validators!
-	public Product getProductChoice(Scanner scnr/* maybe more? */) {
-		System.out.println("\nWhat would you like to order? Choose an option 1-" + menu.size() + ".");
-
-		// TODO: Validate user has entered an integer (within the bounds of the menu)
-		int menuChoice = Integer.parseInt(scnr.nextLine().trim());
-		
-		Product chosenProduct = menu.get(menuChoice - 1);
+	public Product getProductChoice(Scanner scnr) {
+		// Ask user to select a product
+		Product chosenProduct = menu.get(Validators.getValidMenuChoice(scnr, menu.size()) - 1);
 		
 		// Ask user for quantity
-		System.out.println("How many " + chosenProduct.getName() + " would you like? ");
-		
-		// TODO: Validate positive whole number (do we want a limit?)
-		int quantityChoice = Integer.parseInt(scnr.nextLine().trim());
+		int quantityChoice = Validators.getValidQuantity(scnr);
 		
 		// Set chosenProduct's quantity
 		chosenProduct.setQuantity(quantityChoice);

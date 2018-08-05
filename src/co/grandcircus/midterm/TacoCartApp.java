@@ -17,22 +17,12 @@ public class TacoCartApp {
 		// Display menu to user
 		menu.displayMenu();
 		
+		order.addProduct(menu.getProductChoice(scnr));
 		
-		// Initialize a product with the user's choice
-		int menuChoice = Validators.getValidMenuChoice(scnr, menu);
-		System.out.println(menuChoice);
-		
-//		Product chosenProduct2 = menu.getProductChoice(scnr);
-//				
-//		// Add the chosen product to the order
-//		order.addProduct(chosenProduct2);
-//				
-//		// Print the order (not very pretty)
-//		System.out.println(order);
-//		
-//		System.out.println(order.getSubTotal());
-//		System.out.printf("%.2f%n", order.getSalesTax());
-//		System.out.println(order.getGrandTotal());
+		System.out.println(order);
+		System.out.println(order.getSubTotal());
+		System.out.printf("%.2f%n", order.getSalesTax());
+		System.out.println(order.getGrandTotal());
 
 
 		

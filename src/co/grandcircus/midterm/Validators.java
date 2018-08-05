@@ -66,7 +66,7 @@ public class Validators {
 	}
 	
 	// Amna wrote me, yay!
-	public static int getValidMenuChoice(Scanner scnr, Menu menu) {
+	public static int getValidMenuChoice(Scanner scnr, int menuSize) {
 		// Set input valid to false initially
 		int menuChoice = 0;
 		
@@ -82,7 +82,7 @@ public class Validators {
 				// Try to parse user input for an integer ... might fail and kick to catch
 				menuChoice = getParsedInteger(scnr.nextLine().trim());
 				// Check if it's positive and in range ... might fail and kick to catch	
-				isInRange(menuChoice, menu.getMenuList().size());
+				isInRange(menuChoice, menuSize);
 				// If survives all validators! You win. You are the valid input!
 				inputValid = true;
 
@@ -107,8 +107,7 @@ public class Validators {
 		try {
 			return Integer.parseInt(userInput);
 		} catch (NumberFormatException ex) {
-			// TODO: Overly specific error message! Make applicable to all situations
-			throw new IllegalArgumentException("That's not a valid number of items to order! Please try again:");
+			throw new IllegalArgumentException("That's not even a number! Please try again:");
 		}
 	}
 
