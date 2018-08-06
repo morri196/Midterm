@@ -14,22 +14,7 @@ public class TacoCartApp {
 		Menu menu = new Menu(fileUtil.readFile());
 		OrderTracker todaysOrders = new OrderTracker();
 		
-		
-		
-		
-		
-		// TODO: Kari makes the BIG LOOP
-		
-		Order newOrder = orderingLoop(scnr,menu);
-		
-		todaysOrders.addOrder(newOrder);
-		
-		newOrder.displayFinalOrder();
-		
-		newOrder.payForOrder(scnr);
-		
-		
-		
+		takingOrdersLoop(scnr, menu, todaysOrders);		
 		
 		
 	}
@@ -54,8 +39,22 @@ public class TacoCartApp {
 		return order;
 	}
 	
-	public static void pointOfSaleLoop(/* some stuff */) {
-		// TODO: make it so.
+	public static void takingOrdersLoop(Scanner scnr, Menu menu, OrderTracker todaysOrders) {
+		String lastCall = "";
+		do {
+
+			Order newOrder = orderingLoop(scnr, menu);
+
+			todaysOrders.addOrder(newOrder);
+
+			newOrder.displayFinalOrder();
+		
+			newOrder.payForOrder(scnr);
+		
+			System.out.println("Can I take a new order please? (y/N)");
+			lastCall = scnr.nextLine().trim();
+		
+		} while (lastCall.equalsIgnoreCase("y"));
 	}
 
 }
