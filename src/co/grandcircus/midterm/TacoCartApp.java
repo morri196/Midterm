@@ -12,41 +12,46 @@ public class TacoCartApp {
 		
 		// Initialize Menu and Empty Order
 		Menu menu = new Menu(fileUtil.readFile());
-
-		//loop begins. display menu, get the order, display the card, ask if user would like to continue ordering.
-		//if no, exit loop
-		// Display menu to user
-		String continueShopping = "";
+		OrderTracker todaysOrders = new OrderTracker();
+		
+		
+		
+		
+		
+		// TODO: Kari makes the BIG LOOP
+		
+		Order newOrder = orderingLoop(scnr,menu);
+		
+		todaysOrders.addOrder(newOrder);
+		
+		newOrder.displayFinalOrder();
+		
+		newOrder.payForOrder(scnr);
+		
+		
+		
+		
+		
+	}
+		
+	public static Order orderingLoop(Scanner scnr, Menu menu) {
 		Order order = new Order();
-
+		String continueShopping;
+		
 		do {
 			menu.displayMenu();
 			
 			// Get order
 			order.addProduct(menu.getProductChoice(scnr));
 			
-			// Display cart?
-			// TODO: Amna is working on this right now.
+			order.displayCurrentOrder();
 			
 			System.out.println("Would you like to select another item? (y/N)");
 			continueShopping = scnr.nextLine().trim();
 
 		} while (continueShopping.equalsIgnoreCase("y"));
 		
-		System.out.println(order);
-
-		order.displayCurrentOrder();
-
-		System.out.println(order.getSubTotal());
-		System.out.printf("%.2f%n", order.getSalesTax());
-		System.out.println(order.getGrandTotal());
-		
-		order.payForOrder(scnr);
-	}
-		
-	public static void orderingLoop(/* some stuff */) {
-		// TODO: make it so.
-		
+		return order;
 	}
 	
 	public static void pointOfSaleLoop(/* some stuff */) {
