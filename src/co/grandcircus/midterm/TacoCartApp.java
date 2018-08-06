@@ -14,6 +14,8 @@ public class TacoCartApp {
 		Menu menu = new Menu(fileUtil.readFile());
 		Order order = new Order();
 		
+		// Loop Begins
+
 		// Display menu to user
 		menu.displayMenu();
 		
