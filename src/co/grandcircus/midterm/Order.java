@@ -54,6 +54,10 @@ public class Order {
 	public double getGrandTotal() {
 		return getSubTotal() + getSalesTax();
 	}
+	
+	public void displayOrder() {
+		// TODO: print alllllll the things nicely!
+	}
 
 	public void payForOrder(Scanner scnr) {
 		List<String> paymentOptions = new ArrayList<String>();
