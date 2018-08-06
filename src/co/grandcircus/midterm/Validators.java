@@ -156,8 +156,6 @@ public class Validators {
 		int menuChoice = 0;
 		boolean inputValid = false;
 
-		System.out.println("Choose a menu item: ");
-
 		do {
 			try {
 				menuChoice = getParsedInteger(scnr.nextLine().trim());

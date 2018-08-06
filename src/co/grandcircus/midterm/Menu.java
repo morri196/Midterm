@@ -44,6 +44,8 @@ public class Menu {
 	}
 	
 	public Product getProductChoice(Scanner scnr) {
+		System.out.println("\nPlease select an item from the menu (1-" + menu.size() + "):");
+		
 		// Ask user to select a product
 		Product chosenProduct = menu.get(Validators.getValidMenuChoice(scnr, menu.size()) - 1);
 		

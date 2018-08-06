@@ -26,7 +26,15 @@ public class TacoCartApp {
 		
 		order.payForOrder(scnr);
 
-
+	}
+	
+	public static void orderingLoop(/* some stuff */) {
+		// TODO: make it so.
+		
+	}
+	
+	public static void pointOfSaleLoop(/* some stuff */) {
+		// TODO: make it so.
 	}
 
 }

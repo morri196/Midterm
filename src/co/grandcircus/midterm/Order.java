@@ -27,7 +27,6 @@ public class Order {
 		this.order = order;
 	}
 
-	// write a method that adds a product to the order:
 	public void addProduct(Product product) {
 		order.add(product);
 	}
@@ -108,6 +107,8 @@ public class Order {
 		double change = payment - getGrandTotal();
 		
 		// TODO: Enhance the receipt
+		// call the displayFinalCart method here to print out the cart
+		
 		System.out.printf("Your change is %.2f.%n", change);
 	}
 
@@ -115,6 +116,8 @@ public class Order {
 		String checkNum = Validators.getValidCheckNumber(scnr);
 		
 		// TODO: Enhance the receipt
+		// call the displayFinalCart method here to print out the cart
+		
 		System.out.println("Check No. " + checkNum + " for " + getGrandTotal() + " confirmed.");
 	}
 
