@@ -35,7 +35,7 @@ public class TacoCartApp {
 		
 		System.out.println(order);
 
-		order.displayOrder();
+		order.displayCurrentOrder();
 
 		System.out.println(order.getSubTotal());
 		System.out.printf("%.2f%n", order.getSalesTax());

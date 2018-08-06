@@ -57,8 +57,8 @@ public class Order {
 	public void displayCurrentOrder() {
 		for (Product product : order) {
 			System.out.println("Item" + "    " + "Quantity" + "    " + "Price");
-			System.out.println("=======================================");
-			System.out.printf(product.getName()+ " " + product.getQuantity() + " " + (product.getPrice() * product.getQuantity()));
+			System.out.println("=========================");
+			System.out.printf(product.getName()+ "     " + product.getQuantity() + "     " + (product.getPrice() * product.getQuantity()));
 			System.out.println();
 			
 		}
@@ -66,6 +66,12 @@ public class Order {
 	
 	public void displayFinalOrder() {
 		// TODO: displayCurrentOrder() + sales tax and grand total
+		displayCurrentOrder();
+		
+			System.out.println("Subtotal: " + getSubTotal());
+			System.out.println("Sales Tax: " + getSalesTax());
+			System.out.println("Grand Total " + getGrandTotal());
+		
 	}
 
 	public void payForOrder(Scanner scnr) {
