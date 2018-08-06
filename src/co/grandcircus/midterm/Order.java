@@ -53,9 +53,17 @@ public class Order {
 	public double getGrandTotal() {
 		return getSubTotal() + getSalesTax();
 	}
-	
+
 	public void displayOrder() {
 		// TODO: print alllllll the things nicely!
+		for (Product product : order) {
+			System.out.println("Item" + "    " + "Quantity" + "    " + "Price");
+			System.out.println("=======================================");
+			System.out.printf(product.getName()+ " " + product.getQuantity() + " " + (product.getPrice() * product.getQuantity()));
+			System.out.println();
+			
+
+		}
 	}
 
 	public void payForOrder(Scanner scnr) {
@@ -105,7 +113,7 @@ public class Order {
 		double payment = Validators.getValidCashPayment(scnr, getGrandTotal());
 
 		double change = payment - getGrandTotal();
-		
+
 		// TODO: Enhance the receipt
 		// call the displayFinalCart method here to print out the cart
 		
@@ -114,7 +122,7 @@ public class Order {
 
 	public void payWithCheck(Scanner scnr) {
 		String checkNum = Validators.getValidCheckNumber(scnr);
-		
+
 		// TODO: Enhance the receipt
 		// call the displayFinalCart method here to print out the cart
 		
