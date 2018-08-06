@@ -7,6 +7,27 @@ import java.util.Scanner;
 
 public class Validators {
 
+	
+	public static String getValidName(Scanner scnr) {
+		String name = "";
+		boolean inputValid = false;
+		
+		System.out.println("Please enter your name as it appears on your card. ");
+		
+		do {
+			try {
+				name = scnr.nextLine().trim();
+				isValidNameOnCreditCard(name);
+				inputValid = true;
+				
+			} catch (IllegalArgumentException ex) {
+				
+				System.out.println(ex.getMessage());
+			}
+		} while (!inputValid);
+		return name;
+	}
+	
 	// Dewey wrote me, yay!
 	public static int getValidQuantity(Scanner scnr) {
 		// Initialize variable you want to return
@@ -159,7 +180,7 @@ public class Validators {
 
 	// Validate that a String is alphanumeric and only contains single spaces
 	public static void isValidNameOnCreditCard(String userInput) {
-		if (!userInput.matches("^(?!.*  )[a-zA-Z ]*$")) {
+		if (!userInput.matches("^(?!.*  )[a-zA-Z ]+$")) {
 			throw new IllegalArgumentException("You must enter your name as it appears on the card. Please try again:");
 		}
 	}

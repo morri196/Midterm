@@ -10,7 +10,7 @@ public class Vtest {
 		
 		Scanner scnr = new Scanner(System.in);
 		
-		int quantity = Validators.getValidQuantity(scnr);
+		Validators.getValidName(scnr);
 		
 		scnr.close();
 		
