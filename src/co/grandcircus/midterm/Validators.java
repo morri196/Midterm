@@ -6,6 +6,88 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class Validators {
+	
+	public static String getValidCheckNumber(Scanner scnr) {
+		String checkNum = "";
+		boolean inputValid = false;
+		
+		System.out.println("Enter your 4 digit check number: ");
+		
+		do {
+			try {
+				checkNum = scnr.nextLine().trim();
+				isCorrectNumberOfDigits(checkNum, 4);
+				inputValid = true;
+
+			} catch (IllegalArgumentException ex) {
+				System.out.println(ex.getMessage());
+			} 
+		} while (!inputValid);
+		
+		return checkNum;
+	}
+	
+	public static String getValidCreditCardCVV(Scanner scnr) {
+		String cardVerificationValue = "";
+		boolean inputValid = false;
+		
+		System.out.println("Enter your card's 3-digit CVV: ");
+		
+		do {
+			try {
+				cardVerificationValue = scnr.nextLine().trim();
+				isCorrectNumberOfDigits(cardVerificationValue, 3);
+				inputValid = true;
+
+			} catch (IllegalArgumentException ex) {
+				System.out.println(ex.getMessage());
+			} 
+		} while (!inputValid);
+		
+		return cardVerificationValue;
+		
+	}
+	
+	public static String getValidCreditCardExpiration(Scanner scnr) {
+		String exDate = "";
+		boolean inputValid = false;
+		
+		System.out.println("Enter your card's expiration date (mm/yy): ");
+		
+		do {
+			try {
+				exDate = scnr.nextLine().trim();
+				isValidCreditCardExpirationDate(exDate);
+				inputValid = true;
+				
+			} catch (IllegalArgumentException ex) {
+				System.out.println(ex.getMessage());
+				
+			}
+		} while (!inputValid); 
+		
+		return exDate;
+	}
+	
+	public static String getValidCreditCardNumber(Scanner scnr) {
+		String cardNum = "";
+		boolean inputValid = false;
+		
+		System.out.println("Enter your credit card number (####-####-####-####):");
+		
+		do {
+			try {
+				cardNum = scnr.nextLine().trim();
+				isValidCreditCardNumber(cardNum);
+				inputValid = true;
+				
+			} catch (IllegalArgumentException ex) {
+				System.out.println(ex.getMessage());
+				
+			}
+		} while (!inputValid);
+		return cardNum;
+	}
 
 	
 	public static String getValidName(Scanner scnr) {
@@ -21,10 +103,10 @@ public class Validators {
 				inputValid = true;
 				
 			} catch (IllegalArgumentException ex) {
-				
 				System.out.println(ex.getMessage());
 			}
 		} while (!inputValid);
+		
 		return name;
 	}
 	
@@ -121,7 +203,6 @@ public class Validators {
 		return menuChoice;
 	}
 	
-	// TODO: Remaining getBLAHBLAH methods:
 	// getValidCreditCard
 	// getValidExpirationDate --> Add actual expiration validation
 	// getValidCVV
@@ -165,8 +246,8 @@ public class Validators {
 	}
 
 	// Validate that an integer has a specified amount of digits
-	public static void isCorrectNumberOfDigits(int userInput, int correctNumDigits) {
-		if (String.valueOf(userInput).length() != correctNumDigits) {
+	public static void isCorrectNumberOfDigits(String userInput, int correctNumDigits) {
+		if (userInput.length() != correctNumDigits) {
 			throw new IllegalArgumentException("You must enter " + correctNumDigits + " digits. Please try again:");
 		}
 	}
@@ -188,7 +269,7 @@ public class Validators {
 	// Validate that a String has the format ####-####-####-####
 	public static void isValidCreditCardNumber(String userInput) {
 		if (!userInput.matches("^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")) {
-			throw new IllegalArgumentException("custom yell at them message");
+			throw new IllegalArgumentException("Credit card number must have the format ####-####-####-####. Please try again:");
 		}
 	}
 

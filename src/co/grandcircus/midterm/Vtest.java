@@ -12,6 +12,13 @@ public class Vtest {
 		
 		Validators.getValidName(scnr);
 		
+		Validators.getValidCreditCardNumber(scnr);
+		
+		Validators.getValidCreditCardExpiration(scnr);
+		
+		Validators.getValidCreditCardCVV(scnr);
+		
+		
 		scnr.close();
 		
 	}
