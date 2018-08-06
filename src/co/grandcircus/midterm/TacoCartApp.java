@@ -23,6 +23,8 @@ public class TacoCartApp {
 		System.out.println(order.getSubTotal());
 		System.out.printf("%.2f%n", order.getSalesTax());
 		System.out.println(order.getGrandTotal());
+		
+		order.payForOrder(scnr);
 
 
 	}

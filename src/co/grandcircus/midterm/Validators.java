@@ -6,13 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class Validators {
-	
+	// TODO: Maybe add specific error messages for getValidBLANK methods
+
 	public static String getValidCheckNumber(Scanner scnr) {
 		String checkNum = "";
 		boolean inputValid = false;
-		
+
 		System.out.println("Enter your 4 digit check number: ");
-		
+
 		do {
 			try {
 				checkNum = scnr.nextLine().trim();
@@ -21,18 +22,18 @@ public class Validators {
 
 			} catch (IllegalArgumentException ex) {
 				System.out.println(ex.getMessage());
-			} 
+			}
 		} while (!inputValid);
-		
+
 		return checkNum;
 	}
-	
+
 	public static String getValidCreditCardCVV(Scanner scnr) {
 		String cardVerificationValue = "";
 		boolean inputValid = false;
-		
+
 		System.out.println("Enter your card's 3-digit CVV: ");
-		
+
 		do {
 			try {
 				cardVerificationValue = scnr.nextLine().trim();
@@ -41,172 +42,136 @@ public class Validators {
 
 			} catch (IllegalArgumentException ex) {
 				System.out.println(ex.getMessage());
-			} 
+			}
 		} while (!inputValid);
-		
+
 		return cardVerificationValue;
-		
+
 	}
-	
+
 	public static String getValidCreditCardExpiration(Scanner scnr) {
 		String exDate = "";
 		boolean inputValid = false;
-		
+
 		System.out.println("Enter your card's expiration date (mm/yy): ");
-		
+
 		do {
 			try {
 				exDate = scnr.nextLine().trim();
 				isValidCreditCardExpirationDate(exDate);
 				inputValid = true;
-				
+
 			} catch (IllegalArgumentException ex) {
 				System.out.println(ex.getMessage());
-				
+
 			}
-		} while (!inputValid); 
-		
+		} while (!inputValid);
+
 		return exDate;
 	}
-	
+
 	public static String getValidCreditCardNumber(Scanner scnr) {
 		String cardNum = "";
 		boolean inputValid = false;
-		
+
 		System.out.println("Enter your credit card number (####-####-####-####):");
-		
+
 		do {
 			try {
 				cardNum = scnr.nextLine().trim();
 				isValidCreditCardNumber(cardNum);
 				inputValid = true;
-				
+
 			} catch (IllegalArgumentException ex) {
 				System.out.println(ex.getMessage());
-				
+
 			}
 		} while (!inputValid);
 		return cardNum;
 	}
 
-	
-	public static String getValidName(Scanner scnr) {
+	public static String getValidNameOnCard(Scanner scnr) {
 		String name = "";
 		boolean inputValid = false;
-		
+
 		System.out.println("Please enter your name as it appears on your card. ");
-		
+
 		do {
 			try {
 				name = scnr.nextLine().trim();
 				isValidNameOnCreditCard(name);
 				inputValid = true;
-				
+
 			} catch (IllegalArgumentException ex) {
 				System.out.println(ex.getMessage());
 			}
 		} while (!inputValid);
-		
+
 		return name;
 	}
-	
-	// Dewey wrote me, yay!
+
 	public static int getValidQuantity(Scanner scnr) {
-		// Initialize variable you want to return
 		int quantity = 1;
-		// Set input valid to false initially
 		boolean inputValid = false;
 
-		// Print desired prompt
 		System.out.println("How many would you like?");
 
-		// Enter the do loop that goes as long as input is not valid
 		do {
 			try {
-				// Try to parse user input for an integer ... might fail and kick to catch
 				quantity = getParsedInteger(scnr.nextLine().trim());
-				// Check if it's positive ... might fail and kick to catch
 				isPositive(quantity);
-				// If you survive all validators! You win. You are the valid input!
 				inputValid = true;
 
 			} catch (IllegalArgumentException ex) {
-				// Get the specific exception that was thrown's message and print it
-				// TODO: Write a more relevant error message
 				System.out.println(ex.getMessage());
 
 			}
 		} while (!inputValid);
 
-		// Return the valid input
 		return quantity;
 	}
-	
-	// Kari wrote me, yay!
-	public static double getValidCashPayment(Scanner scnr, Order order) {
+
+	public static double getValidCashPayment(Scanner scnr, Double grandTotal) {
 		double cashPayment = 0;
 		boolean inputValid = false;
 
-		// Print desired prompt
 		System.out.println("Enter cash amount: ");
 
-		// Enter the do loop that goes as long as input is not valid
 		do {
 			try {
-				// Try to parse user input for an integer ... might fail and kick to catch
 				cashPayment = getParsedDouble(scnr.nextLine().trim());
-				isGreaterThanMinAmount(cashPayment, order.getGrandTotal());
+				isGreaterThanMinAmount(cashPayment, grandTotal);
 				inputValid = true;
 
 			} catch (IllegalArgumentException ex) {
-				// Get the specific exception that was thrown's message and print it
-				// TODO: Write a more relevant error message
 				System.out.println(ex.getMessage());
 
 			}
 		} while (!inputValid);
 
-		// Return the valid input
 		return cashPayment;
 	}
-	
-	// Amna wrote me, yay!
+
 	public static int getValidMenuChoice(Scanner scnr, int menuSize) {
-		// Set input valid to false initially
 		int menuChoice = 0;
-		
-		// Set input valid to false initially
 		boolean inputValid = false;
 
-		// Print desired prompt
 		System.out.println("Choose a menu item: ");
 
-		// Enter the do loop that goes as long as input is not valid
 		do {
 			try {
-				// Try to parse user input for an integer ... might fail and kick to catch
 				menuChoice = getParsedInteger(scnr.nextLine().trim());
-				// Check if it's positive and in range ... might fail and kick to catch	
 				isInRange(menuChoice, menuSize);
-				// If survives all validators! You win. You are the valid input!
 				inputValid = true;
 
 			} catch (IllegalArgumentException ex) {
-				// Get the specific exception that was thrown's message and print it
-				// TODO: Write a more relevant error message
 				System.out.println(ex.getMessage());
 
 			}
 		} while (!inputValid);
 
-		// Return the valid input
 		return menuChoice;
 	}
-	
-	// getValidCreditCard
-	// getValidExpirationDate --> Add actual expiration validation
-	// getValidCVV
-	// getValidCheckNo (might overlap with CVV)
 
 	public static int getParsedInteger(String userInput) {
 		try {
@@ -269,7 +234,8 @@ public class Validators {
 	// Validate that a String has the format ####-####-####-####
 	public static void isValidCreditCardNumber(String userInput) {
 		if (!userInput.matches("^\\d{4}-\\d{4}-\\d{4}-\\d{4}$")) {
-			throw new IllegalArgumentException("Credit card number must have the format ####-####-####-####. Please try again:");
+			throw new IllegalArgumentException(
+					"Credit card number must have the format ####-####-####-####. Please try again:");
 		}
 	}
 
