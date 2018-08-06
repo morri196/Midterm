@@ -12,21 +12,26 @@ public class TacoCartApp {
 		
 		// Initialize Menu and Empty Order
 		Menu menu = new Menu(fileUtil.readFile());
-		Order order = new Order();
-		
-		// Loop Begins
 
+		//loop begins. display menu, get the order, display the card, ask if user would like to continue ordering.
+		//if no, exit loop
 		// Display menu to user
-		menu.displayMenu();
-		
-		// Get order
-		order.addProduct(menu.getProductChoice(scnr));
-		
+		String continueShopping = "";
+		Order order = new Order();
 
-		// Display cart?
-		// TODO: Amna is working on this right now.
-		
-		// Ask if user wants to order another product
+		do {
+			menu.displayMenu();
+			
+			// Get order
+			order.addProduct(menu.getProductChoice(scnr));
+			
+			// Display cart?
+			// TODO: Amna is working on this right now.
+			
+			System.out.println("Would you like to select another item? (y/N)");
+			continueShopping = scnr.nextLine().trim();
+
+		} while (continueShopping.equalsIgnoreCase("y"));
 		
 		System.out.println(order);
 
@@ -37,9 +42,8 @@ public class TacoCartApp {
 		System.out.println(order.getGrandTotal());
 		
 		order.payForOrder(scnr);
-
 	}
-	
+		
 	public static void orderingLoop(/* some stuff */) {
 		// TODO: make it so.
 		
