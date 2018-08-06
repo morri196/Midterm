@@ -10,13 +10,13 @@ public class Vtest {
 		
 		Scanner scnr = new Scanner(System.in);
 		
-		Validators.getValidNameOnCard(scnr);
+		// Validators.getValidNameOnCard(scnr);
 		
-		Validators.getValidCreditCardNumber(scnr);
+		// Validators.getValidCreditCardNumber(scnr);
 		
 		Validators.getValidCreditCardExpiration(scnr);
 		
-		Validators.getValidCreditCardCVV(scnr);
+		// Validators.getValidCreditCardCVV(scnr);
 		
 		
 		scnr.close();

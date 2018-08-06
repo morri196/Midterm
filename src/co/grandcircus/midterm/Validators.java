@@ -1,8 +1,8 @@
 package co.grandcircus.midterm;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Validators {
@@ -241,21 +241,16 @@ public class Validators {
 
 	// Validate that a String is a valid date with the format mm/yy
 	public static void isValidCreditCardExpirationDate(String userInput) {
-		DateFormat format = new SimpleDateFormat("MM/yy");
-		format.setLenient(false); /* Inputs must match specified format */
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
 		try {
-			// Try to parse a date (non-leniently) from the input
-			format.parse(userInput);
-		} catch (ParseException pe) {
-			throw new IllegalArgumentException("Date format must be MM/YY. Please try again:");
+			// Try to parse a YearMonth from the input, then check to make sure it is not in
+			// the past.
+			if (YearMonth.parse(userInput, formatter).isBefore(YearMonth.now())) {
+				throw new IllegalArgumentException("Expiration date must be in the future! Please try again:");
+			}
+		} catch (DateTimeException dte) {
+			throw new IllegalArgumentException("Expiration date format must be mm/yy. Please try again:");
 		}
-		// Check for dates that could be parsed but do not follow mm/yy format
-		// MIGHT BE OVERKILL?
-		if (!userInput.matches("^[0-9]{2}/[0-9]{2}$")) {
-			throw new IllegalArgumentException("Date format must be MM/YY. Please try again:");
-		}
-
-		// TODO: Add validation that the card has not expired!
 
 	}
 
