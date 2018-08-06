@@ -2,32 +2,33 @@ package co.grandcircus.midterm;
 
 import java.util.ArrayList;
 
-public class orderTracker {
+public class OrderTracker {
 private ArrayList<Order> orderList = new ArrayList<Order>();
 
-public orderTracker(ArrayList<Order> orderTracker) {
+public OrderTracker(ArrayList<Order> orderList) {
 	super();
-	this.orderList = orderTracker;
+	this.orderList = orderList;
 }
 
-public ArrayList<Order> getOrderTracker() {
+public OrderTracker() {
+	
+}
+
+public ArrayList<Order> getOrderList() {
 	return orderList;
 }
 
-public void setOrderTracker(ArrayList<Order> orderTracker) {
-	this.orderList = orderTracker;
+public void setOrderList(ArrayList<Order> orderList) {
+	this.orderList = orderList;
 }
 
-@Override
+ @Override
 public String toString() {
-	return "orderTracker [orderTracker=" + orderList + "]";
-} 
+	return "OrderTracker [orderList=" + orderList + "]";
+}
 
- public void addOrder(Order order) {
+public void addOrder(Order order) {
 	 orderList.add(order);
  }
-
-
-
 
 }
