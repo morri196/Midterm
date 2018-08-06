@@ -17,7 +17,13 @@ public class TacoCartApp {
 		// Display menu to user
 		menu.displayMenu();
 		
+		// Get order
 		order.addProduct(menu.getProductChoice(scnr));
+		
+		// Display cart?
+		// TODO: Amna is working on this right now.
+		
+		// Ask if user wants to order another product
 		
 		System.out.println(order);
 		System.out.println(order.getSubTotal());
