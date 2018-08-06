@@ -47,7 +47,9 @@ public class TacoCartApp {
 
 			todaysOrders.addOrder(newOrder);
 
+
 			newOrder.displayFinalOrder();
+
 		
 			newOrder.payForOrder(scnr);
 		
