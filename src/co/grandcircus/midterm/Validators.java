@@ -29,6 +29,7 @@ public class Validators {
 
 			} catch (IllegalArgumentException ex) {
 				// Get the specific exception that was thrown's message and print it
+				// TODO: Write a more relevant error message
 				System.out.println(ex.getMessage());
 
 			}
@@ -56,6 +57,7 @@ public class Validators {
 
 			} catch (IllegalArgumentException ex) {
 				// Get the specific exception that was thrown's message and print it
+				// TODO: Write a more relevant error message
 				System.out.println(ex.getMessage());
 
 			}
@@ -88,6 +90,7 @@ public class Validators {
 
 			} catch (IllegalArgumentException ex) {
 				// Get the specific exception that was thrown's message and print it
+				// TODO: Write a more relevant error message
 				System.out.println(ex.getMessage());
 
 			}

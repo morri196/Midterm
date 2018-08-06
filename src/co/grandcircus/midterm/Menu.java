@@ -43,7 +43,6 @@ public class Menu {
 
 	}
 	
-	// TODO: Refactor this to be compatible with our new validators!
 	public Product getProductChoice(Scanner scnr) {
 		// Ask user to select a product
 		Product chosenProduct = menu.get(Validators.getValidMenuChoice(scnr, menu.size()) - 1);
