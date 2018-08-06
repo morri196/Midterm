@@ -37,8 +37,8 @@ public class Menu {
 		
 		for (int i = 0; i < menu.size(); i++) {
 			Product product = menu.get(i);
-			// TODO: Fix the period!
-			System.out.printf("%d. %-25s%-10s$%.2f%n", (i + 1), product.getName(), product.getCategory(), product.getPrice());
+			String enumeratedItem = String.format("%d. %s", (i + 1), product.getName()); 
+			System.out.printf("%-28s%-10s$%.2f%n", enumeratedItem, product.getCategory(), product.getPrice());
 		}
 
 	}
