@@ -8,17 +8,22 @@ public class TacoCartApp {
 		
 		// Make an instance of a ProductFileUtil to use for reading/writing Product files.
 		ProductFileUtil fileUtil = new ProductFileUtil();
+		
+		// Make a scanner
 		Scanner scnr = new Scanner(System.in);
 		
-		// Initialize Menu and Empty Order
+		// Initialize/read the menu and make an empty OrderTracker
 		Menu menu = new Menu(fileUtil.readFile());
 		OrderTracker todaysOrders = new OrderTracker();
 		
 		takingOrdersLoop(scnr, menu, todaysOrders);	
 		
+		// Summarize the day's orders
 		todaysOrders.orderSummary();
 		
 		System.out.println("Goodbye!");
+		
+		scnr.close();
 		
 	}
 		
