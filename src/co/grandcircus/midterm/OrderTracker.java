@@ -44,7 +44,7 @@ public class OrderTracker {
 		
 		System.out.print("=============================================\n");
 		String allOrdersTotalString = String.format("$%.2f", allOrdersTotal);
-		System.out.printf("%-25s%20s%n%n", "Today's Taco Haul", allOrdersTotalString);
+		System.out.printf("%-25s%20s%n%n", "Today's Taco Haul:", allOrdersTotalString);
 		
 	}
 
