@@ -55,23 +55,29 @@ public class Order {
 	}
 
 	public void displayCurrentOrder() {
-		System.out.println("Item" + "    " + "Quantity" + "    " + "Price");
-		System.out.println("=========================");
-		
-		for (Product product : order) {
-			System.out.printf(product.getName()+ "     " + product.getQuantity() + "     " + (product.getPrice() * product.getQuantity()));
-			System.out.println();
-			
+		System.out.println("\nYour current order:");
+		System.out.printf("%-23s%10s%12s%n", "Name", "Quantity", "Price");
+		System.out.print("=============================================\n");
+
+		for (int i = 0; i < order.size(); i++) {
+			Product product = order.get(i);
+			String linePrice = String.format("$%.2f", (product.getPrice() * product.getQuantity()));
+			System.out.printf("%-27s%6d%12s%n", product.getName(), product.getQuantity(), linePrice);
+
 		}
+		System.out.print("=============================================\n");
+		String orderSubtotal = String.format("$%.2f", getSubTotal());
+		System.out.printf("%-25s%20s%n", "Order Subtotal:", orderSubtotal);
+
 	}
-	
+
 	public void displayFinalOrder() {
-		// TODO: displayCurrentOrder() + sales tax and grand total
 		displayCurrentOrder();
-			System.out.println();
-			System.out.printf("Subtotal: " + "$%.2f%n", getSubTotal());
-			System.out.printf("Sales Tax: " + "$%.2f%n", getSalesTax());
-			System.out.printf("Grand Total: " + "$%.2f%n", getGrandTotal());
+		String orderSalesTax = String.format("$%.2f", getSalesTax());
+		String orderGrandTotal = String.format("$%.2f", getGrandTotal());
+		System.out.printf("%-25s%20s%n", "Sales Tax:", orderSalesTax);
+		System.out.print("=============================================\n");
+		System.out.printf("%-25s%20s%n", "Order Grand Total:", orderGrandTotal);
 		
 	}
 
@@ -80,7 +86,7 @@ public class Order {
 		paymentOptions.add("Cash");
 		paymentOptions.add("Credit");
 		paymentOptions.add("Check");
-		
+
 		System.out.println();
 		System.out.println("Please select your payment type. (1-" + paymentOptions.size() + "):");
 
@@ -126,7 +132,7 @@ public class Order {
 
 		// TODO: Enhance the receipt
 		// call the displayFinalCart method here to print out the cart
-		
+
 		System.out.printf("Your change is %.2f.%n", change);
 	}
 
@@ -135,7 +141,7 @@ public class Order {
 
 		// TODO: Enhance the receipt
 		// call the displayFinalCart method here to print out the cart
-		
+
 		System.out.println("Check No. " + checkNum + " for " + getGrandTotal() + " confirmed.");
 	}
 

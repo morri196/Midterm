@@ -29,9 +29,7 @@ public class Menu {
 		return "Menu [menuList=" + menu + "]";
 	}
 	
-	public void displayMenu() {
-		// TODO: This could probably be nicer
-		
+	public void displayMenu() {		
 		System.out.printf("#. %-25s%-10s%s%n", "Name", "Category", "Price");
 		System.out.print("===========================================\n");
 		

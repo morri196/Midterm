@@ -30,10 +30,22 @@ public class OrderTracker {
 	public void addOrder(Order order) {
 		orderList.add(order);
 	}
-	
-	// TODO: Write a method that loops through every order and prints its grand total
-	// e.g. "Order 1 - $2.75
-	// e.g. "Order 2 - $800.45
-	// TODO: get fancy and make it print a sum of all the grand totals.
+
+	public void orderSummary() {
+		System.out.print("=============================================\n");
+		double allOrdersTotal = 0;
+		
+		for (int i = 1; i <= orderList.size(); i++) {
+			double orderTotal = orderList.get(i - 1).getGrandTotal();
+			allOrdersTotal += orderTotal;
+			String orderTotalString = String.format("$%.2f", orderTotal);
+			System.out.printf("%-25s%20s%n", ("Order " + i + ": "), orderTotalString);
+		}
+		
+		System.out.print("=============================================\n");
+		String allOrdersTotalString = String.format("$%.2f", allOrdersTotal);
+		System.out.printf("%-25s%20s%n%n", "Today's Taco Haul", allOrdersTotalString);
+		
+	}
 
 }

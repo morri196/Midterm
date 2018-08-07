@@ -14,8 +14,11 @@ public class TacoCartApp {
 		Menu menu = new Menu(fileUtil.readFile());
 		OrderTracker todaysOrders = new OrderTracker();
 		
-		takingOrdersLoop(scnr, menu, todaysOrders);		
+		takingOrdersLoop(scnr, menu, todaysOrders);	
 		
+		todaysOrders.orderSummary();
+		
+		System.out.println("Goodbye!");
 		
 	}
 		
@@ -31,7 +34,7 @@ public class TacoCartApp {
 			
 			order.displayCurrentOrder();
 			
-			System.out.println("Would you like to select another item? (y/N)");
+			System.out.println("\nWould you like to select another item? (y/N)");
 			continueShopping = scnr.nextLine().trim();
 
 		} while (continueShopping.equalsIgnoreCase("y"));
@@ -42,18 +45,15 @@ public class TacoCartApp {
 	public static void takingOrdersLoop(Scanner scnr, Menu menu, OrderTracker todaysOrders) {
 		String lastCall = "";
 		do {
-
 			Order newOrder = orderingLoop(scnr, menu);
 
 			todaysOrders.addOrder(newOrder);
 
-
 			newOrder.displayFinalOrder();
 
-		
 			newOrder.payForOrder(scnr);
 		
-			System.out.println("Can I take a new order please? (y/N)");
+			System.out.println("\nCan I take a new order please? (y/N)");
 			lastCall = scnr.nextLine().trim();
 		
 		} while (lastCall.equalsIgnoreCase("y"));
