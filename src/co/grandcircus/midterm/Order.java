@@ -78,7 +78,7 @@ public class Order {
 		System.out.printf("%-25s%20s%n", "Sales Tax:", orderSalesTax);
 		System.out.print("=============================================\n");
 		System.out.printf("%-25s%20s%n", "Order Grand Total:", orderGrandTotal);
-		
+
 	}
 
 	public void payForOrder(Scanner scnr) {
@@ -121,7 +121,8 @@ public class Order {
 
 		// TODO: Enhance the receipt
 		// TODO: Display final shopping cart (need to write this)
-		System.out.println("Payment of " + getGrandTotal() + " confirmed. Thank you. ");
+		System.out.printf("Payment of $%.2f (using credit card ending in *" + cardNum.substring(cardNum.length() - 4)
+				+ ") confirmed.%n", getGrandTotal());
 
 	}
 
@@ -133,7 +134,7 @@ public class Order {
 		// TODO: Enhance the receipt
 		// call the displayFinalCart method here to print out the cart
 
-		System.out.printf("Your change is %.2f.%n", change);
+		System.out.printf("Your change is $%.2f.%n", change);
 	}
 
 	public void payWithCheck(Scanner scnr) {
@@ -142,7 +143,7 @@ public class Order {
 		// TODO: Enhance the receipt
 		// call the displayFinalCart method here to print out the cart
 
-		System.out.println("Check No. " + checkNum + " for " + getGrandTotal() + " confirmed.");
+		System.out.println("Check No. " + checkNum + " for $" + getGrandTotal() + " confirmed.");
 	}
 
 }
