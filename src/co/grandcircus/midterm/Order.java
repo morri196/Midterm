@@ -59,7 +59,6 @@ public class Order {
 		System.out.println("=========================");
 		
 		for (Product product : order) {
-		
 			System.out.printf(product.getName()+ "     " + product.getQuantity() + "     " + (product.getPrice() * product.getQuantity()));
 			System.out.println();
 			
@@ -69,7 +68,7 @@ public class Order {
 	public void displayFinalOrder() {
 		// TODO: displayCurrentOrder() + sales tax and grand total
 		displayCurrentOrder();
-		
+			System.out.println();
 			System.out.printf("Subtotal: " + "$%.2f%n", getSubTotal());
 			System.out.printf("Sales Tax: " + "$%.2f%n", getSalesTax());
 			System.out.printf("Grand Total: " + "$%.2f%n", getGrandTotal());
@@ -81,7 +80,8 @@ public class Order {
 		paymentOptions.add("Cash");
 		paymentOptions.add("Credit");
 		paymentOptions.add("Check");
-
+		
+		System.out.println();
 		System.out.println("Please select your payment type. (1-" + paymentOptions.size() + "):");
 
 		for (int i = 1; i <= paymentOptions.size(); i++) {
